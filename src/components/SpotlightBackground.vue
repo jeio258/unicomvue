@@ -156,6 +156,7 @@ let positionBuffer = null;
 let uniforms = null;
 let isWebGl2 = false;
 let rendererUnavailable = false;
+let hostEl = null;
 let motionQuery = null;
 let resizeObserver = null;
 let windowResizeFallbackActive = false;
@@ -274,6 +275,7 @@ function initRenderer() {
     powerPreference: "default",
   };
 
+  hostEl = hostRef.value;
   try {
     gl = canvas.getContext("webgl2", contextOptions);
     isWebGl2 = Boolean(gl);
@@ -335,6 +337,7 @@ function initRenderer() {
     positionBuffer = null;
     uniforms = null;
     rendererUnavailable = true;
+    hostEl?.classList.add('spotlight-unavailable');
     console.warn("WebGL 光束背景初始化失败：", error);
     return false;
   }
@@ -473,6 +476,7 @@ function destroyRenderer() {
 watch(() => props.active, syncPlayback);
 
 onMounted(() => {
+  hostEl = hostRef.value;
   motionQuery = getMediaQuery("(prefers-reduced-motion: reduce)");
   frameInterval = getMediaQuery("(pointer: coarse)")?.matches
     ? MOBILE_FRAME_INTERVAL_MS

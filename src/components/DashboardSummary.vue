@@ -52,6 +52,6 @@ const dotClass = computed(() => {
   if (props.dotKind === "error") {
     return "h-1.5 w-1.5 rounded-full bg-rose-500 shadow-rose-500/50";
   }
-  return "h-1.5 w-1.5 rounded-full bg-zinc-400";
+  return "h-2 w-2 rounded-full bg-zinc-500";
 });
 </script>

@@ -5,6 +5,7 @@
 :root {
   background-color: var(--color-zinc-50);
   color: var(--color-zinc-900);
+  font-family: var(--font-sans);
   width: 100%;
   max-width: 100%;
   min-height: 100%;
@@ -48,7 +49,7 @@ img, video, canvas {
 .capture-watermark {
   margin: 0;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='120' viewBox='0 0 200 120'%3E%3Ctext x='24' y='70' fill='%2371717a' fill-opacity='.09' font-family='Arial,sans-serif' font-size='16' font-weight='600' letter-spacing='1' transform='rotate(-18 100 60)'%3Enet.2t.hk%3C/text%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='120' viewBox='0 0 200 120'%3E%3Ctext x='24' y='70' fill='%2371717a' fill-opacity='.09' font-family='system-ui,-apple-system,sans-serif' font-size='16' font-weight='600' letter-spacing='1' transform='rotate(-18 100 60)'%3Enet.2t.hk%3C/text%3E%3C/svg%3E");
   background-position: center;
   background-repeat: repeat;
 }
@@ -65,25 +66,21 @@ img, video, canvas {
   z-index: 60;
 }
 
-.rainbow-bar {
-  background: repeating-linear-gradient(
+.unlimited-bar {
+  background: linear-gradient(
     90deg,
-    #ff4d4f 0%,
-    #ffa940 12.5%,
-    #ffd666 25%,
-    #95de64 37.5%,
-    #36cfc9 50%,
-    #40a9ff 62.5%,
-    #9254de 75%,
-    #ff4d4f 100%
+    var(--color-indigo-400) 0%,
+    var(--color-indigo-500) 30%,
+    var(--color-violet-500) 60%,
+    var(--color-indigo-400) 100%
   );
-  background-size: 240px 100%;
-  animation: rb 1.8s linear infinite;
+  background-size: 200% 100%;
+  animation: unlimited-shift 3s ease-in-out infinite;
 }
 
-@keyframes rb {
-  from { background-position: 0 0; }
-  to { background-position: 240px 0; }
+@keyframes unlimited-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .app-shell {
@@ -100,6 +97,23 @@ img, video, canvas {
 
 .app-shell.dark {
   color-scheme: dark;
+}
+
+/* WebGL fallback — subtle radial glow when Spotlight is unavailable */
+.app-shell.dark .spotlight-unavailable::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% -20%, rgba(99,102,241,0.10) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 30% 60%, rgba(139,92,246,0.05) 0%, transparent 60%);
+}
+
+.mono-value {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
 }
 
 @media (max-width: 768px) {

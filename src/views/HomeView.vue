@@ -105,7 +105,7 @@
           aria-hidden="true"
         ></div>
 
-        <section class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm sm:p-6 dark:border-[#8e96aa40] dark:bg-[#1b1b1f95]">
+        <section class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm sm:p-6 dark:border-[var(--color-border-subtle)] dark:bg-[#1b1b1f95]">
           <div class="flex flex-col items-stretch gap-3 min-[360px]:flex-row min-[360px]:items-start min-[360px]:justify-between">
             <div class="min-w-0">
               <h1 class="min-w-0 text-xl font-semibold tracking-tight sm:text-2xl">
@@ -184,7 +184,7 @@
                 </div>
 
                 <div class="my-2 h-px bg-zinc-100 dark:bg-zinc-800"></div>
-                <div class="px-2 pb-1 text-[11px] font-medium text-zinc-500 dark:text-zinc-400">显示主题</div>
+                <div class="px-2 pb-1 text-xs font-medium text-zinc-500 dark:text-zinc-400">显示主题</div>
                 <ThemeSelector @change="closeActionMenus" />
 
                 <div class="my-2 h-px bg-zinc-100 dark:bg-zinc-800"></div>

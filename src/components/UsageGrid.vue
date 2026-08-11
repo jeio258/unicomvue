@@ -43,7 +43,7 @@
 
   <div
     v-else-if="loaded"
-    class="rounded-2xl border border-zinc-200 bg-white p-8 text-center text-sm text-zinc-600 hover:shadow-sm dark:border-[#8e96aa40] dark:bg-[#1b1b1f95] dark:text-zinc-400"
+    class="rounded-2xl border border-zinc-200 bg-white p-8 text-center text-sm text-zinc-600 hover:shadow-sm dark:border-[var(--color-border-subtle)] dark:bg-[#1b1b1f95] dark:text-zinc-400"
   >
     暂无可展示的数据
   </div>

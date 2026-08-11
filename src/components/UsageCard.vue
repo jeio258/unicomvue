@@ -1,11 +1,11 @@
 <template>
-  <article class="flex h-full min-w-0 flex-col rounded-2xl border border-zinc-200 bg-white p-5 hover:shadow-sm dark:border-[#8e96aa40] dark:bg-[#1b1b1f95]">
+  <article class="flex h-full min-w-0 flex-col rounded-2xl border border-zinc-200 bg-white p-5 hover:shadow-sm dark:border-[var(--color-border-subtle)] dark:bg-[#1b1b1f95]">
     <div class="flex min-w-0 items-start justify-between gap-4">
       <div class="min-w-0 flex-1 [overflow-wrap:anywhere]">
         <div class="min-w-0 truncate whitespace-nowrap text-sm font-medium text-zinc-700 dark:text-zinc-300">
           {{ card.title }} {{ card.subtitle || "" }}
         </div>
-        <div class="mt-2 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
+        <div class="mono-value mt-2 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
           {{ card.mainValue }}
         </div>
         <div class="mt-2 text-xs text-zinc-500 dark:text-zinc-400">
@@ -80,7 +80,7 @@
       >
         <div
           class="h-full rounded-full"
-          :class="card.unlimited ? 'rainbow-bar' : 'bg-zinc-900 dark:bg-zinc-100'"
+          :class="card.unlimited ? 'unlimited-bar' : 'bg-zinc-900 dark:bg-zinc-100'"
           :style="{ width: `${progressValue ?? 0}%` }"
         ></div>
       </div>
